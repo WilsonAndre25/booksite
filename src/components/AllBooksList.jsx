@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-
-
-
 function AllBooksList() {
 
   const [backendData, setBackendData] = useState([{}])
@@ -21,8 +18,8 @@ function AllBooksList() {
   }, [])
 
   return (
-
     <div>
+   
       {(typeof backendData.users === 'undefined') ? (
         <p>loading...</p>
       ) : (

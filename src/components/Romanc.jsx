@@ -2,19 +2,21 @@
 import { Container, Row, Col, Card,  } from "react-bootstrap"
 import books from '../rdata/romance.json'
 import { Component } from "react"
+import React, {useEffect,useState} from "react";
 
-
-class Romanc extends Component {
+    function Romanc () {
     //state = {
-    //selectedPasta: null,
+    //selected: null,
     //}
-    render() {
+      
+       
+   
         return (
             <Container>
                 <Row>
                     {books.map((books) => {
                         return (
-
+                    
                             <Col xs={3} className="mt-4" key={books.asin}>
 
                                 <>
@@ -44,7 +46,7 @@ class Romanc extends Component {
             </Container >
         );
     }
-}
+
 
 
 

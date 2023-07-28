@@ -1,30 +1,40 @@
-import{Navbar,Nav} from "react-bootstrap"
-import {Link} from 'react-router-dom'
+
+import {Navbar, Nav, Form} from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 
 
-const MyNavbar = (props)=>(
+const MyNavbar = () => (
+
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand>{props.proTitle} </Navbar.Brand>    
+    
+      <Navbar.Brand>Online Libary</Navbar.Brand> 
 
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="m-auto">
-      <Link to ="/History">History Books</Link>
-      <Link to ="/Romanc">Romance books</Link>
-      <Link to ="/AllBooksList">All Books</Link>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+
+      <Nav className=" m-auto"> 
+
+     <Link  to ="/History">HISTORY BOOKS</Link>
+</Nav>
  
-    </Nav>
-    <Nav>
-      <Nav.Link href="#deets">Sing in</Nav.Link>
-      <Nav.Link eventKey={2} href="#memes">
-        Sing up
-      </Nav.Link>
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
+<Nav className="mr-auto">
+ <Link  to ="/Romanc">ROMANCE BOOKS</Link>
+ </Nav>
 
-);
+ <Nav className="mr-auto">
+ <Link  to ="/AllBooksList">All  BOOKS</Link>
+ </Nav>
+
+        <Nav> 
+        <Form.Control type='text' placeholder= 'Search here'/>  
+       
+        </Nav>
+      </Navbar.Collapse>
+    
+  </Navbar>
+
+)
+
+
 export default MyNavbar
-
-
