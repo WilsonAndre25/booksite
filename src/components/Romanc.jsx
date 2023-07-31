@@ -1,8 +1,8 @@
 
 import { Container, Row, Col, Card,  } from "react-bootstrap"
 import books from '../rdata/romance.json'
-import { Component } from "react"
-import React, {useEffect,useState} from "react";
+
+
 
     function Romanc () {
     //state = {
