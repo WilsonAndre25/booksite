@@ -1,11 +1,14 @@
 
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css"
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
-import { AllBooksList,MyNavbar, History,Romanc } from './components'
+import { BrowserRouter,Routes,Route,Carousel } from 'react-router-dom'
+import { AllBooksList,MyNavbar, History,Romanc,Home } from './components'
+
 
 const PageNotFound =()=>{
-  return <h2> Page Not Found...</h2>
+  return <div>
+   
+  </div>
 }
 
 function App () {
@@ -22,7 +25,7 @@ return (
   <Route path="/History" element = {<History/>} />
   <Route path="/Romanc" element = {<Romanc />} />
   <Route path="/AllBooksList" element = {<AllBooksList/>} />
-  <Route path= "*"element ={<PageNotFound/>}/>
+  <Route path= "*"element ={<Home/>}/>
 </Routes>
 
 </BrowserRouter>
@@ -32,4 +35,6 @@ return (
 
 }
 
-export default App
+
+
+export default App 

@@ -8,8 +8,6 @@ import books from '../rdata/romance.json'
     //state = {
     //selected: null,
     //}
-      
-       
    
         return (
             <Container>
