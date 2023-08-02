@@ -6,7 +6,7 @@ function AllBooksList() {
 
   useEffect(() => {
 
-    fetch(`${process.env.BE_URL}/api`).then(
+    fetch(`${process.env.http://localhost:5000/api}`).then(
       response => response.json()
 
     ).then(
