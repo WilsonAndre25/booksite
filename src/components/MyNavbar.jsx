@@ -1,5 +1,5 @@
 
-import {Navbar, Nav, Form,Col} from "react-bootstrap"
+import {Navbar, Nav, Form,} from "react-bootstrap"
 import { Link } from "react-router-dom"
 import Logo from './img/open.png'
 

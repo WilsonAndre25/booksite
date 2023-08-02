@@ -1,15 +1,9 @@
 
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css"
-import { BrowserRouter,Routes,Route,Carousel } from 'react-router-dom'
+import { BrowserRouter,Routes,Route, } from 'react-router-dom'
 import { AllBooksList,MyNavbar, History,Romanc,Home } from './components'
 
-
-const PageNotFound =()=>{
-  return <div>
-   
-  </div>
-}
 
 function App () {
    

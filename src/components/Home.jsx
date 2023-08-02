@@ -1,5 +1,5 @@
 import { Container, Row, Col, Carousel } from "react-bootstrap"
-import Logo from './img/books-g3770f7222_1280.jpg'
+
 
 
 
