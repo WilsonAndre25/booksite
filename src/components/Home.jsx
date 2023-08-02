@@ -13,7 +13,7 @@ function Home() {
             <Row >
                 <Col className="mt-3">
                 <Carousel > 
-  <Carousel.Item  interval={1000}>
+  <Carousel.Item  interval={500}>
   
     <div className="container ">
   
@@ -42,10 +42,8 @@ function Home() {
      
     </div>
 
-    
-   
   </Carousel.Item>
-  <Carousel.Item>
+  <Carousel.Item  >
 
  <div className=" container">
 

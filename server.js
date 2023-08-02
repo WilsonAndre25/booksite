@@ -35,6 +35,6 @@ App.get('/api',(request,response)=>{
     })
 });
 
-App.listen(5000,()=>{console.log("Server started on port 5000")})
+App.listen(process.env.PORT||5000);
 
 
