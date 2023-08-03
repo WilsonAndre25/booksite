@@ -6,16 +6,16 @@ function AllBooksList() {
     const be_url= 'http://localhost:5000/api'
 useEffect(() => {
 
-  fetch(`${be_url}`).then(
-   response => response.json()
-  ).then(
-    data => {
-      setBackendData(data)
-    }
-  )
-  
+    fetch(`${be_url}`).then(
+      response => response.json()
 
-},[])
+    ).then(
+      data => {
+        setBackendData(data)
+      }
+    )
+
+  }, [])
 
 return (
   <div>
