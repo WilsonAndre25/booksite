@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 function AllBooksList() {
 
-  const [backendData, setBackendData] = useState([{}])
-    const be_url= 'http://localhost:5000/api'
+const [backendData, setBackendData] = useState([{}])
+  
+const be_url= 'http://localhost:5000/api'
+  
 useEffect(() => {
-
     fetch(`${be_url}`).then(
       response => response.json()
-
-    ).then(
+      ).then(
       data => {
         setBackendData(data)
       }
@@ -32,5 +32,4 @@ return (
   </div>
 )
 }
-
 export default AllBooksList
