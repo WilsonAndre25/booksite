@@ -5,9 +5,6 @@ import { BrowserRouter,Routes,Route,} from 'react-router-dom'
  
 import { AllBooksList,MyNavbar, History,Romanc,Home } from './components'
 
-
-
-
 function App () {
    
 return (

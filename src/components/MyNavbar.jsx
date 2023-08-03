@@ -3,12 +3,10 @@ import {Navbar, Nav, Form,} from "react-bootstrap"
 import { Link } from "react-router-dom"
 import Logo from './img/open.png'
 
-
 const MyNavbar = () => (
 
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         
-
         <img src={Logo}   width={50} height={40}   alt="icon1"  /> 
      
       <Navbar.Brand style={{fontFamily:'initial'}}>LIBRARY</Navbar.Brand> 

@@ -1,11 +1,18 @@
 const express = require('express');
+const cors =require ('cors')
+const App = express();
 
-const App= express();
+const port = process.env.PORT || 5000
+
+const corsOptions={
+   origin:"*"
+};
+App.use(cors(corsOptions));
 
 App.get('/api',(request,response)=>{
     response.json({
         users:["LIST OF All BOOKS",
-                
+        
                "Sword of Destiny (The Witcher)",
                "D&D Waterdeep Dragon Heist HC (Dungeons & Dragons)",
                "Destiny Grimoire Anthology, Volume II: Fallen Kingdoms",
@@ -28,13 +35,12 @@ App.get('/api',(request,response)=>{
                "Apparition Island (4) (The Windjammer Mystery Series)",
                "Sins of the Younger Sons",
                "The Walking Drum",
-              
-               
-
+         
     ]
     })
 });
 
-App.listen(process.env.PORT||5000);
+App.listen(port,()=>console.log('My server still run'))
 
 
+//curl X GET localhost:5000/api
