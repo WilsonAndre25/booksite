@@ -14,7 +14,6 @@ return (
    <MyNavbar />
   
 <Routes>
-
   <Route path="/History" element = {<History/>} />
   <Route path="/Romanc" element = {<Romanc />} />
   <Route path="/AllBooksList" element = {<AllBooksList/>} />

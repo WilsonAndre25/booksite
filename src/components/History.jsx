@@ -2,7 +2,6 @@ import { Container, Row, Col, Card,  } from "react-bootstrap"
 import pastas from '../hdata/fantasyBooks.json'
 import { Component } from "react"
 
-
 class History extends Component {
     //state = {
     //selectedPasta: null,

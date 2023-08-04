@@ -2,8 +2,6 @@
 import { Container, Row, Col, Card,  } from "react-bootstrap"
 import books from '../rdata/romance.json'
 
-
-
     function Romanc () {
     //state = {
     //selected: null,
