@@ -1,44 +1,41 @@
 
-import {Navbar, Nav, Form,} from "react-bootstrap"
+import { Navbar, Nav, Form, } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import Logo from './img/open.png'
 
 const MyNavbar = () => (
 
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        
-        <img src={Logo}   width={50} height={40}   alt="icon1"  /> 
-     
-      <Navbar.Brand style={{fontFamily:'initial'}}>LIBRARY</Navbar.Brand> 
+  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
+    <img src={Logo} width={50} height={40} alt="icon1" />
 
-      <Nav className=" m-auto"> 
+    <Navbar.Brand style={{ fontFamily: 'initial' }}>LIBRARY</Navbar.Brand>
 
-     <Link  to ="/History">History Books</Link>
-</Nav>
- 
-<Nav className="mr-auto">
- <Link  to ="/Romanc">Romance Books</Link>
- </Nav>
+    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Collapse id="responsive-navbar-nav">
 
- <Nav className="mr-auto">
- <Link  to ="/AllBooksList">All  Books</Link>
- </Nav>
- <Nav className="mr-auto">
- <Link  to ="/Home">Home</Link>
- </Nav>
+      <Nav className=" m-auto">
 
-        <Nav> 
-        <Form.Control type='text' placeholder= 'Search here'/>  
-       
-        </Nav>
+        <Link to="/History">History Books</Link>
+      </Nav>
 
+      <Nav className="mr-auto">
+        <Link to="/Romanc">Romance Books</Link>
+      </Nav>
 
+      <Nav className="mr-auto">
+        <Link to="/AllBooksList">All  Books</Link>
+      </Nav>
+      <Nav className="mr-auto">
+        <Link to="/Home">Home</Link>
+      </Nav>
 
-      </Navbar.Collapse>
-    
+      <Nav>
+        <Form.Control type='text' placeholder='Search here' />
+
+      </Nav>
+    </Navbar.Collapse>
+
   </Navbar>
 
 )
