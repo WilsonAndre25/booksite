@@ -10,19 +10,18 @@ function AllBooksList() {
         category: "",
     });
 
-    const handleChange = (event) => {
-        const { name, value } = event.target
+  const [backendData, setBackendData] = useState([{}])
+    const be_url= 'http://localhost:5000/api'
+useEffect(() => {
 
-        setPost((prev) => {
-            return {
-                ...prev,
-                [name]: value,
-            }
-        })
-    };
+    fetch(`${be_url}`).then(
+      response => response.json()
 
-    const handleClick = (event) => {
-        event.preventDefault();
+    ).then(
+      data => {
+        setBackendData(data)
+      }
+    )
 
         axios.post("/create",post)
             .then((res) => console.log(res))
@@ -32,40 +31,11 @@ function AllBooksList() {
    }
     return (
 
-        <div className="p-3 bg-secondary text-white mt-3 "
+        <div className="p-3 bg-secondary text-white mt-3 ">
 
 
-            style={{ width: '40%', margin: 'auto auto ', textAlign: 'center', borderRadius: '10px' }} >
-            <h2>Choose Here</h2>
-            <Form>
-                <Form.Group>
-                    <Form.Control
-                        name="title"
-                        value={post.title}
-                        placeholder="Title"
-                        style={{ marginBottom: '1rem' }}
-                        onChange={handleChange}
-                    />
-                    <Form.Control
-                        name="category"
-                        value={post.category}
-                        placeholder="Category"
-                        style={{ marginBottom: '1rem' }}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
-                <Button style={{ width: "50%", marginBottom: "1rem" }}
-                    variant="outline-success"
-                    onClick={handleClick}>Reserve</Button>
-            </Form>
-            <Button
-                style={{ width: '50%' }}
-                variant="outline-dark"
-                onClick={() => navigate(-2)} >BACK</Button>
-        </div>
+  </div>
+)
+}
 
-
-    )
-};
-
-export default AllBooksList;
+export default AllBooksList
