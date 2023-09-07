@@ -1,44 +1,46 @@
 
-import { Navbar, Nav, Form, } from "react-bootstrap"
+import { Navbar, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import Logo from './img/open.png'
+import icon from './img/contact-us-symbols_chat.webp'
 
-const MyNavbar = () => (
 
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 
-    <img src={Logo} width={50} height={40} alt="icon1" />
 
-    <Navbar.Brand style={{ fontFamily: 'initial' }}>LIBRARY</Navbar.Brand>
+function MyNavbar() {
 
-    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    <Navbar.Collapse id="responsive-navbar-nav">
 
-      <Nav className=" m-auto">
+  return (
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 
-        <Link to="/History">History Books</Link>
-      </Nav>
+      <img src={Logo} width={50} height={40} alt="icon1" />
 
-      <Nav className="mr-auto">
-        <Link to="/Romanc">Romance Books</Link>
-      </Nav>
+      <Navbar.Brand style={{ fontFamily: 'initial' }}>LIBRARY</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
 
-      <Nav className="mr-auto">
-        <Link to="/AllBooksList">All  Books</Link>
-      </Nav>
-      <Nav className="mr-auto">
-        <Link to="/Home">Home</Link>
-      </Nav>
+        <Nav className=" m-auto">
+          <Link to="/History">History Books</Link>
+        </Nav>
 
-      <Nav>
-        <Form.Control type='text' placeholder='Search here' />
+        <Nav className="mr-auto">
+          <Link to="/AllBooksList">Book Here</Link>
+        </Nav>
+        <Nav className="mr-auto">
+          <Link to="/Home">Home</Link>
+        </Nav>
 
-      </Nav>
-    </Navbar.Collapse>
+        <Nav className="mr-auto">
+            <img src={icon} width={30} height={30} alt="icon1" />
+            
+          <Link to="/Signup ">Login</Link>
+        
 
-  </Navbar>
+        </Nav>
+      </Navbar.Collapse>
 
-)
-
+    </Navbar>
+  )
+}
 
 export default MyNavbar

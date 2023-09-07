@@ -1,8 +1,6 @@
 import { Container, Row, Col, Carousel } from "react-bootstrap"
 
 
-
-
 function Home() {
     //state = {
     //selected: null,
