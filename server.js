@@ -33,17 +33,6 @@ const postSchema1 = mongoose.Schema({
 const Post = mongoose.model('Post', postSchema1)
 
 
-//FIRST DB SCHEMA AND MODEL
-
-
-
-//Second DB SCHEMA AND MODEL
-
-          
-
-//app.get('*',(request,response)=>{
-// response.send('Not Found')
-//})
 app.post("/create", (req, res) => {
     Post.create({
         title: req.body.title,
@@ -73,8 +62,7 @@ app.delete("/delete/:id", (req, res) => {
 
 }) 
     app.put("/update/:id", (req, res) => {
-    //console.log(req.params)
-   // console.log(req.body)
+   
      Post.findByIdAndUpdate({_id:req.params.id},
         {
          title:req.body.title,
@@ -83,8 +71,6 @@ app.delete("/delete/:id", (req, res) => {
      }
      ).then((doc)=>console.logo())
        .catch((err)=>console.log(err))
-
-
 
     
     })
@@ -153,7 +139,7 @@ const userExists = await User.findOne({email:email})
 const user = new User({
    name,
    email,
-   password
+   password:passwordHash 
 
 })
    try{
@@ -170,7 +156,7 @@ const user = new User({
    
 
 })
-//Credencial
+
 
 /////////// Login with jwt//////////////////
 
@@ -197,12 +183,7 @@ app.post('/register/login', async (req, res, ) => {
         
 
 
-  //check if password macth
-  //const checkpassword = await bcrypt.compareSync(password, user.password)
-
-   // if(!checkpassword) {
-   // return res.status(404).json({msg:"check password"}) 
-   //}
+ 
 
 }) 
 

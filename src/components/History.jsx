@@ -9,6 +9,9 @@ class History extends Component {
     render() {
         return (
             <Container>
+                <div style={{ width: '40%', margin: 'auto auto ', textAlign: 'center', color: 'blue',marginTop:'1rem' }} >
+                <h3>History Books</h3>
+               </div>
                 <Row>
                     {pastas.map((pasta) => {
                         return (
