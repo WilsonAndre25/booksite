@@ -12,12 +12,16 @@ function App() {
     <div className='App'>
 
       <BrowserRouter>
-        <MyNavbar />
-     
+      <Routes>
+       <Route path="/Romanc" element={<Romanc />} />
+       </Routes>
+       
+      <MyNavbar  />
+
         <Routes>
+        <Route path="/MyNavbar " element={<MyNavbar  />} />
           <Route path="*" element={<Home />} />
           <Route path="/History" element={<History />} />
-          <Route path="/Romanc" element={<Romanc />} />
           <Route path="/AllBooksList" element={<AllBooksList />} />
           <Route path="/AllBooksList/Posts" element={<Posts />} />
           <Route path="/Login1" element={<Login1/>} />

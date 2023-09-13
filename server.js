@@ -75,9 +75,8 @@ app.delete("/delete/:id", (req, res) => {
     
     })
 
-             
-///  Authorization////
-
+            
+///  Authorization///
 
 app.get("/user/:id",checkToken, async(req, res)=>{
 const id = req.params.id
@@ -103,9 +102,9 @@ function checkToken(req,res,next){
    }catch(error){
     req.status(400).json({msg:'invalid token'})
    }
+   
 
-
-
+      
 }
 
 
@@ -139,7 +138,7 @@ const userExists = await User.findOne({email:email})
 const user = new User({
    name,
    email,
-   password:passwordHash 
+   password,
 
 })
    try{
@@ -154,9 +153,7 @@ const user = new User({
    }
 
    
-
 })
-
 
 /////////// Login with jwt//////////////////
 
@@ -180,17 +177,11 @@ app.post('/register/login', async (req, res, ) => {
             const jwtToken = jwt.sign({id:userEmail.id, email:userEmail.email},process.env.JWT_SECRET)
 
             res.json({auth:true ,token:jwtToken})
-        
 
-
- 
 
 }) 
 
     
-
-       
-
 // Our Route 
 app.listen(3002, (req, res) => {
     console.log("My server is too nice")
