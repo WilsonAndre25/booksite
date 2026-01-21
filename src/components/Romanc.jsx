@@ -10,22 +10,9 @@ function Romanc() {
 
     return (
 
-
-       
-
-
-
-
-
-
-
-
         <Container>
-
 <div>
-
-        
-                
+              
 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 
 <img src={Logo} width={50} height={40} alt="icon1" />
@@ -55,64 +42,12 @@ function Romanc() {
 </Navbar.Collapse>
 
 </Navbar>
+
 </div>
 
-
-
-
-
             <div style={{ width: '40%', margin: 'auto auto ', textAlign: 'center', color: 'blue' }} >
-                
-                
-                
-                
-                
-                
-                
-                
-        
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+              
                 <h2>Romance Books</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
             <Row>
                 {books.map((books) => {
@@ -147,10 +82,6 @@ function Romanc() {
         </Container >
     );
 }
-
-
-
-
 
 
 export default Romanc

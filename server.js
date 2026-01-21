@@ -102,9 +102,7 @@ function checkToken(req,res,next){
    }catch(error){
     req.status(400).json({msg:'invalid token'})
    }
-   
-
-      
+       
 }
 
 
@@ -126,14 +124,11 @@ if(!password){
 const userExists = await User.findOne({email:email})
   if(userExists){
     return res.status(422).json({msg:" user already exist"})  
-
   }
 
     const salt = await bcrypt.genSalt(8)
     const passwordHash = await bcrypt.hash(password, salt)
     
-  
-
 //create User//
 const user = new User({
    name,
@@ -178,10 +173,8 @@ app.post('/register/login', async (req, res, ) => {
 
             res.json({auth:true ,token:jwtToken})
 
-
 }) 
-
-    
+  
 // Our Route 
 app.listen(3002, (req, res) => {
     console.log("My server is too nice")

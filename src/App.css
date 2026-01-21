@@ -37,3 +37,19 @@
 .root{
   background-color: cornflowerblue;
 }
+
+.drop-all> .nav-link{
+border-bottom-left-radius: 5px;
+
+border-top-left-radius: 5px;
+border-right: 0;
+border: 1px solid #ccc;
+height: 38px;
+padding: 10,2;
+
+}
+
+.me-2{
+border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+}

@@ -13,18 +13,21 @@ function App() {
 
       <BrowserRouter>
       <Routes>
-       <Route path="/Romanc" element={<Romanc />} />
+
+       { /*<Route path="/Romanc" element={<Romanc />} />  */}
+    
        </Routes>
        
       <MyNavbar  />
 
         <Routes>
-        <Route path="/MyNavbar " element={<MyNavbar  />} />
+         <Route path="/Romanc" element={<Romanc />} />
           <Route path="*" element={<Home />} />
           <Route path="/History" element={<History />} />
           <Route path="/AllBooksList" element={<AllBooksList />} />
           <Route path="/AllBooksList/Posts" element={<Posts />} />
           <Route path="/Login1" element={<Login1/>} />
+          
           <Route path="/Signup"element={<Signup />} />
 
         </Routes>

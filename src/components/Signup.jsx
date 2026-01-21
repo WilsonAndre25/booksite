@@ -13,7 +13,6 @@ const Signup = () => {
    
   const navigate = useNavigate()
   
-
   const handleSubmit =(e)=>{
     e.preventDefault()
        axios.post('/register',{name, email,password})
@@ -25,8 +24,6 @@ const Signup = () => {
 
   }
   
-             
-
   return (
 
 

@@ -1,64 +1,87 @@
-import { Container, Row, Col, Carousel } from "react-bootstrap"
+import { Container, Nav, Navbar, NavDropdown, Form, Button } from "react-bootstrap"
+import FirstLogo from './img/open-library-logo-png_seeklogo-425670.png'
+
 
 
 function Home() {
-    //state = {
-    //selected: null,
-    //}
 
-    return (
-        <Container >
-            <Row >
-                <Col className="mt-3">
-                <Carousel > 
-  <Carousel.Item  interval={500}>
-  
-    <div className="container ">
-  
-    <img 
-      className="d-block w-100 rounded"
-      src="https://img.freepik.com/fotos-gratis/close-up-abriu-o-livro-na-biblioteca_23-2147845965.jpg?w=740&t=st=1690820233~exp=1690820833~hmac=6158727cdecfd291abf61a763b05337bd286cb09dd902f5c09ca9ec7c018a06f"
-      alt="First slide"
-     width={300} height={520}/>
 
-      <div className="img1"> What are your friends reading?   </div>
- 
-   </div>
-   
-  </Carousel.Item>
 
-  <Carousel.Item interval={500}>
+  return (
 
-    <div className='container'>
-    <img 
-      className="d-block w-100 rounded"
-      src= "https://img.freepik.com/fotos-gratis/vista-frontal-de-livros-empilhados-e-escadas-para-o-dia-da-educacao_23-2149241046.jpg?w=740&t=st=1690821163~exp=1690821763~hmac=fe1dfd5b21e6676e44c4382f8e885a16e0725f68dbbf42f7d4e2c4a288c668fe"
-      alt="Second slide"
-      width={300} height={520}/>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container fluid>
+        <img src={FirstLogo} style={{ width: 200, height: 200, }} margim alt="logo1" />
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
 
-      <div  className="img2"> You'll find the best books here !</div>
-     
-    </div>
+          <Nav
+            className="mx-auto aling-items-center"
+            style={{ gap: "4rem" }}
+            navbarScroll
+          >
+            <Nav.Link href="#action1">My Books</Nav.Link>
+           
 
-  </Carousel.Item>
-  <Carousel.Item  >
+            <NavDropdown title="Browse" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action5">
+                Something else here
+              </NavDropdown.Item>
+            </NavDropdown>
 
- <div className=" container">
 
-    <img
-      className="d-block w-100 rounded"
-      src="https://img.freepik.com/fotos-premium/quadro-negro-com-livro-de-pilha_488220-9873.jpg?w=740"
-      alt="Third slide"
-      width={300} height={520}/>
-       <div className="img3"> Decides what to read next !</div>
-    </div>
 
-  </Carousel.Item>
-</Carousel>
-                </Col>
-            </Row>
-        </Container>
-    );
+
+          </Nav>
+
+
+          <Form className="d-flex">
+
+
+            <NavDropdown
+             title="All" 
+             id="navbarScrollingDropdown"
+             className="drop-all"
+             >
+              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action5">
+                Something else here
+              </NavDropdown.Item>
+            </NavDropdown>
+
+
+            <Form.Control
+
+
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+
+
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+
+
+
+
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+
+  );
 }
+
 
 export default Home

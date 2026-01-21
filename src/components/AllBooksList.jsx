@@ -45,8 +45,6 @@ function AllBooksList() {
 
             onChange={handleChange}
           />
-
-
           <Form.Control
             name="category"
             placeholder="category"
@@ -84,36 +82,9 @@ function AllBooksList() {
         onClick={() => navigate(-1)}
       >back</Button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
   )
-
-
-
-
-
-
-
 
 }
 
