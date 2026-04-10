@@ -20,7 +20,7 @@ function BooksCarousel1 () {
       .catch(err => console.error(err));
   }, []);
 
-  // Função para dividir em grupos de 6
+  //  dividir em grupos de 6
   const chunkBooks = (array, size) => {
     const chunks = [];
     for (let i = 0; i < array.length; i += size) {
@@ -33,7 +33,7 @@ function BooksCarousel1 () {
 
   return (
      
-    <Container className="my-5">
+    <Container className="py-4 px-4  custom-container">
 
       <div className="Browsesearch">
 

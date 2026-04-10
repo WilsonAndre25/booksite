@@ -28,14 +28,12 @@ function   BooksCarousel2()  {
   const bookSlides = chunkBooks(books, 6);
 
   return (
-    <Container className="my-5">
+    <Container className="py-4 px-4 custom-container">
 <div className="Browsesearch">
 
   <a href="">Textbooks</a>
 </div>
       
-
-
       <Row className="justify-content-center">
         <Col md={10} lg={12}>
           <Carousel interval={null} indicators={false}>

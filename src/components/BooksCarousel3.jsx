@@ -30,7 +30,7 @@ function BooksCarousel3 () {
   const bookSlides = chunkBooks(books, 6);
 
   return (
-    <Container className="my-5">
+    <Container className="py-4 px-4 custom-container">
 
 <div className="Browsesearch">
     <a href="">Books We Love</a>

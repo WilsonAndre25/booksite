@@ -1,5 +1,5 @@
 
-import Rect, {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {  useSearchParams } from "react-router-dom";
 import { Card,Row, Container,Col } from "react-bootstrap";
 
@@ -7,33 +7,24 @@ import { Card,Row, Container,Col } from "react-bootstrap";
 function ShowBooks () {
 
 
-    const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
    const [SearchParams] =useSearchParams()
 
    const query= SearchParams.get("q")
 
+   useEffect(() => {
+  if (!query) return;
 
+  const fetchBooks = async () => {
+    const response = await fetch(
+      `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`
+    );
+    const data = await response.json();
+    setBooks(data.docs);
+  };
 
-   useEffect(()=>{
-    const fetchBooks=async ()=>{
-
-        const response=await fetch(`https://openlibrary.org/search.json?q=${query}`
-
-        );
-   const data=await response.json()
-   setBooks(data.docs);
-    }
-    if (query){
-        fetchBooks();
-    }
-
-
-
-
-
-   },[query])
-
-  
+  fetchBooks();
+}, [query]);
 
     return(
    

@@ -15,9 +15,9 @@ function Home() {
     return (
 
            <div className="home-container">
-        <>
 
-      
+        <>
+        
 
           <BooksCarousel />
           <BooksCarousel1/>
@@ -25,7 +25,7 @@ function Home() {
           <BooksCarousel3/>
           <BooksCarousel4/>
           <SearchCarrousel/>
-      
+
 
         </>
   </div>

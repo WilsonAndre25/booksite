@@ -1,3 +1,6 @@
+
+
+
 import { Container, Nav, Navbar, NavDropdown, Card, Row, Col, Carousel } from "react-bootstrap"
 import { useEffect,useState } from "react";
 
@@ -26,20 +29,15 @@ function BooksCarousel() {
 
   return (
 
-
-    <Container className="my-5">
+    <Container className="py-4 px-4 custom-container">
 
     <div className="Welcome">
            <h5>Welcome to Open Library</h5>
-
     </div>
 <div className="Browsesearch">
-
-  <a href="">Romance</a>
+  <a href="" >Romance</a>
 </div>
        
-
-
       <Row className="justify-content-center">
         <Col md={10} lg={12}>
           <Carousel interval={null} indicators={false} >
@@ -61,7 +59,7 @@ function BooksCarousel() {
                             objectFit: "cover",
                           }}
                         />
-                        <Card.Body>
+                        <Card.Body  style={{ padding: "1.2rem" }}>
                           <Card.Title style={{ fontSize: "0.85rem" }}>
                             {book.title}
                           </Card.Title>

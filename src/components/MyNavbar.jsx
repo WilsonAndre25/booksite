@@ -50,7 +50,6 @@ function MyNavbar() {
         setSuggestions(data.docs)
 
       } catch (error) {
-
         console.log(error)
 
       }
@@ -63,15 +62,12 @@ function MyNavbar() {
 
   return (
 
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="custom-navbar">
       <Container fluid>
 
         <img src={FirstLogo} style={{ width: 125, height: 90, marginLeft: 75 }} alt="logo1" />
-
         <Navbar.Toggle aria-controls="navbarScroll" />
-
         <Navbar.Collapse id="navbarScroll">
-
           <Nav
             className="mx-auto align-items-center"
             style={{ gap: "5.5rem" }}
@@ -132,7 +128,13 @@ function MyNavbar() {
                     <ListGroup.Item
                       key={index}
                       action
-                      onClick={() => navigate(`/search?q=${book.title}`)}
+
+                      onClick={() => {
+                        navigate(`/search?q=${encodeURIComponent(book.title)}`);
+                        setSuggestions([]);
+                      }}
+
+
                     >
 
                       {book.title}
@@ -161,7 +163,6 @@ function MyNavbar() {
 
   );
 }
-
 export default MyNavbar
 
 

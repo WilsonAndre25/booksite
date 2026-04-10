@@ -3,9 +3,6 @@ import { useEffect,useState } from "react";
 
 
 
-
-
-
 function BooksCarousel4 ()  {
 
 
@@ -30,7 +27,7 @@ function BooksCarousel4 ()  {
   const bookSlides = chunkBooks(books, 6);
 
   return (
-    <Container className="my-5">
+    <Container className="py-4 px-4 custom-container">
   
   <div className="Browsesearch">
 <a href="">Kids</a>
@@ -77,13 +74,8 @@ function BooksCarousel4 ()  {
       </Row>
     </Container>
 
-
-
   );
 
-
 }
-
-
 
 export default   BooksCarousel4
