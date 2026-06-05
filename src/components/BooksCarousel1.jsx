@@ -3,13 +3,7 @@ import { Container, Nav, Navbar, NavDropdown, Card, Row, Col, Carousel } from "r
 import { useEffect,useState } from "react";
 
 
-
-
-
-
 function BooksCarousel1 () {
-
-
 
  const [books, setBooks] = useState([]);
 

@@ -2,6 +2,11 @@ body {
   margin: 0;
 }
 
+
+
+body{
+    padding-top:90px;
+}
 .container {
   position: relative;
 }
@@ -239,4 +244,362 @@ border-radius: 4px;
    font-size: 20px;
    padding: 20px;
 
+}
+
+.login1{
+background-color:#e0d8d0;
+ width: 25%;
+  margin: auto;
+  border-radius: 10px;
+
+}
+
+
+.IconsFooter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px 0;
+
+}
+
+
+
+.IconsFooter a {
+ color: black;
+ font-size: 25px;
+text-decoration: none;
+}
+
+
+.IconsFooter  a:hover {
+    transform: scale(1.15);
+    transition: 0.3s;
+}
+
+
+.iconLogin a {
+
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+
+}
+
+
+.signupBtn{
+    color: rgb(20, 20, 20) !important;
+  font-weight: bolder;
+ font-size: 20px;
+
+    
+}
+
+.closeX {
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.closeX:hover {
+  color: rgb(185, 140, 140);
+}
+
+
+
+.EditInfo p {
+
+
+ display: flex;
+  flex-direction: column;
+
+
+   padding-top: 20px;
+
+
+}
+
+
+.EditInfo button {
+
+margin-bottom: 30px;
+
+
+}
+
+
+
+.icon-user,
+.icon-cart {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.icon-user:hover,
+.icon-cart:hover {
+  color: #6050f3;
+}
+
+.user-name{
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.user-name:hover{
+  color: #6888f0;
+}
+
+
+.Open{
+  display: flex;
+  justify-content: center;
+ padding-top: 50px;
+}
+
+.button-group{
+
+  display: flex;
+  gap: 15px;
+}
+
+
+.detal-count{
+
+
+}
+
+
+
+
+.detalhesConta{
+
+  display:flex;
+ gap: 200px;
+
+
+}
+.encomendas{
+  
+   padding-top: 40px;
+
+}
+
+.encomendas h5{
+
+  margin-left: 50px;
+}
+
+
+.cart-container{
+    width:90%;
+    margin:auto;
+    margin-top:40px;
+}
+
+.cart-container h2{
+    letter-spacing:5px;
+    margin-bottom:40px;
+}
+
+.cart-header{
+    display:grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    border-bottom:1px solid #ccc;
+    padding-bottom:15px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.cart-row{
+    display:grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    align-items:center;
+    padding:30px 0;
+    position:relative;
+}
+
+.product-column{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.product-column img{
+    width:95px;
+    height:140px;
+    object-fit:cover;
+}
+
+.price-column{
+    color:#d22;
+}
+
+.quantity-column{
+    display:flex;
+    align-items:center;
+}
+
+.quantity-column button{
+    background:black;
+    color:white;
+    border:none;
+    width:50px;
+    height:50px;
+}
+
+.quantity-column span{
+    width:50px;
+    text-align:center;
+}
+
+.total-column{
+    font-weight:500;
+}
+
+.remove-btn{
+    position:absolute;
+    right:-10px;
+    top:25px;
+    border:none;
+    background:none;
+    font-size:20px;
+}
+
+.subtotal-box{
+    background:#f1f1f1;
+    padding:25px;
+    display:flex;
+    justify-content:flex-end;
+  
+   
+    font-size:22px;
+    margin-bottom: 50px;
+}
+
+
+.empty-cart{
+    text-align:center;
+    margin-top:80px;
+}
+
+.continue-btn{
+    border:none;
+    background:none;
+    color:#007bff;
+    cursor:pointer;
+    font-size:18px;
+}
+
+
+.continue-btn2{
+ border:none;
+ 
+ padding-bottom: 20px;
+ background:none;
+ 
+    display: flex;
+    justify-content: flex-end;
+
+    width: 100%;
+}
+
+
+.continue-btn2{
+    transition: color 0.3s ease;
+    color: #d22;
+}
+.continue-btn2:hover{
+
+  color: rgb(118, 136, 238);
+}
+
+
+.Compras{
+
+  display: flex;
+justify-content: flex-start;
+padding-bottom: 90px;
+
+}
+
+
+
+
+/* 
+.order-card{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    background:#fafafa;
+} */
+
+
+
+
+.encomendas{
+
+    display:flex;
+
+    flex-direction:row;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    align-items:flex-start;
+}
+
+.order-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    width:420px;
+
+    min-height:150px;
+
+    padding:18px;
+
+    border:1px solid #ddd;
+
+    border-radius:14px;
+
+    background:white;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.order-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+
+.order-card img{
+
+    width:90px;
+
+    height:130px;
+
+    object-fit:cover;
+
+    border-radius:8px;
 }

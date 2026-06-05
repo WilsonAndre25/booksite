@@ -1,7 +1,6 @@
 import { Container, Row, Col, Card, Carousel } from "react-bootstrap";
 
 import Foto1 from "../components/img/music3.jpg"
-
 import Foto2 from "../components/img/biblioteca.jpg"
 import Foto3 from "../components/img/Notebook-Clipart-edit-online.png"
 import Foto4 from "../components/img/flor1.jpg"
@@ -71,12 +70,7 @@ function SearchCarrousel() {
               ))}
             </Row>
           </Carousel.Item>
-        ))}
-
-
-
-
-        
+        ))}        
       </Carousel>
 
 

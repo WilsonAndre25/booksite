@@ -1,98 +1,126 @@
 import { useState } from "react";
-import { Button, Form, Row, Col, } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import AuthForm from "./AuthForm";
+import { Container, Row, Col } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
+import { useAuth } from "./AuthCriterion";
+
+
+
+
 
 const Login1 = () => {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const [loginStatus, setLoginStatus] = useState(false)
+  const { login } = useAuth();
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
 
+  const location = useLocation();
+  const message = location.state?.message;
+  const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const handleChange = (name, value) => {
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios.post('/register/login', { email, password })
-      .then((res) => {
-        if (!res.data.auth) {
-          setLoginStatus(false)
+    try {
+      const res = await axios.post("/user/login", form);
 
-        }
+      if (res.data?.auth) {
+       
+   login(res.data.user, res.data.token);
 
-        else {
-          console.log(res.data);
-          setLoginStatus(true)
+navigate("/home", {
+  state: {
+    message: `Bem-vindo, ${res.data.user.name}!`,
+  },
+});
+       
+      } else {
+        setError("Email ou password inválidos");
+      }
+    } catch (err) {
+      console.log("ERRO REAL:", err.response?.data);
+      setError(err.response?.data?.msg || err.response?.data?.auth || "Erro")
 
-        }
-
-        navigate('/Romanc')
-      })
-      .catch(err => console.log(err))
-
-  }
-
-
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
+    <Container fluid className="vh-100">
+      <Row className="h-100">
+        <Col
+          md={6}
+          className="d-flex flex-column justify-content-center align-items-center bg-light"
+        >
+          <h1>Login</h1>
+          <p style={{ maxWidth: "300px", textAlign: "center" }}>
+            Log in to your account and continue your experience.
+          </p>
+        </Col>
+        <Col
+          md={6}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div style={{ width: "80%", maxWidth: "400px" }}>
 
+            <AuthForm
+              title="LOGIN"
+              buttonText="Sign in"
+              fields={[
+                {
+                  name: "email",
+                  label: "Email",
+                  type: "email",
+                  placeholder: "Enter email",
+                  value: form.email,
+                },
+                {
+                  name: "password",
+                  label: "Password",
+                  type: showPassword ? "text" : "password",
+                  placeholder: "Enter password",
+                  value: form.password,
+                  toggleVisibility: () => setShowPassword((prev) => !prev),
+                  showPassword: showPassword,
+                },
+              ]}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+              loading={loading}
+              error={error}
+            />
+            <Row className="py-3">
+              <Col className="text-center">
+                You don't have an account? <Link to="/signup">Register</Link>
+              </Col>
+            </Row>
+          </div>
+          {message && (
+            <>
+              <p style={{ color: "green" }}>{message}</p>
 
-    <div className="p-3 bg-secondary text-white mt-3 "
-      style={{ width: '25%', margin: 'auto auto ', textAlign: 'center', borderRadius: '10px' }} >
-      <Form onSubmit={handleSubmit} >
-
-        <h3> Login </h3>
-
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            style={{ marginBottom: '1rem' }}
-
-            onChange={(e) => setEmail(e.target.value)}
-
-          />
-          <Form.Text className="text-muted">
-
-          </Form.Text>
-
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            style={{ marginBottom: '1rem' }}
-
-            onChange={(e) => setPassword(e.target.value)}
-
-          />
-        </Form.Group>
-        <Form.Group controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit" style={{ marginBottom: '1rem' }}>
-          sign in
-
-        </Button>
-        <Row className="py-3">
-          <Col>
-            Already have an account? <Link to='/Login'>Login</Link>
-          </Col>
-        </Row>
-      </Form>
-
-
-      <div>
-
-        {loginStatus && <Button>checkbox</Button>}
-
-      </div>
-
-    </div>
-  )
-
-}
-export default Login1 
+              {/* <div style={{ marginTop: "10px" }}>
+                <Link to="/">Ir para a minha conta</Link>
+              </div> */}
+            </>
+          )}
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+export default Login1;

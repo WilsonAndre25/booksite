@@ -1,14 +1,20 @@
-require('dotenv').config()
-const express = require('express')
-const cors = require('cors');
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+import dotenv from "dotenv";
+dotenv.config();
+import cors from "cors"
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import orderRoutes from "./routes/OrderRoutes.js";
+import User from "./models/User.js";
+import jwt from "jsonwebtoken";
+import usersRouter from "./routes/users.js";
 
-const User = require('./models/User')
-const jwt = require('jsonwebtoken');
-const usersRouter = require('./routes/users');
-const { bodyParser } = require('json-server');
-const { type } = require('@testing-library/user-event/dist/type');
+
+
+
+
+
+import express from "express";
+
 
 const app = express();
 app.get('/', (req, res) => {
@@ -22,10 +28,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 
+
 //ROUTER MIDDLEWARE
 // routes for user prefix
 
 app.use('/user', usersRouter);
+app.use('/Orders',orderRoutes)
 
 //mongodb+srv://wilsonandreandre2021_db_user:EWUZyoT0isizeWnN@cluster01.kq9fhsc.mongodb.net/
 const dbPassword = process.env.DB_PASS
@@ -49,7 +57,7 @@ app.post("/create", (req, res) => {
         title: req.body.title,
         category: req.body.category
     })
-        .then((doc) => console.log(doc))
+        .then((doc) => res.json(doc))
         .catch((err) => console.log(err));
 
 });
@@ -58,18 +66,14 @@ app.get("/posts", (req, res) => {
     Post.find()
         .then(items => res.json(items))
         .catch(err => console.log(err))
-       .then((doc) => res.json(doc))
-
 })
-
 
 app.delete("/delete/:id", (req, res) => {
 
     Post.findByIdAndDelete({ _id: req.params.id })
-        .then((doc) => console.log(doc))
+        .then((doc) => res.json(doc))
         .catch((err) => console.log(err))
     console.log(req.params)
-
 
 })
 app.put("/update/:id", (req, res) => {
@@ -78,14 +82,11 @@ app.put("/update/:id", (req, res) => {
         {
             title: req.body.title,
             category: req.body.category
-
         }
-    ).then((doc) => console.logo(doc))
+    ).then((doc) => res.json(doc))
         .catch((err) => console.log(err))
 
-
 })
-
 
 ///  Authorization///
 
@@ -111,64 +112,16 @@ function checkToken(req, res, next) {
         next()
 
     } catch (error) {
-        req.status(400).json({ msg: 'invalid token' })
+        res.status(400).json({ msg: 'invalid token' })
     }
 
 }
 
 
-app.post('/test', async (req, res) => {
-
-    console.log("Test Hit")
-    console.log(req.body);
-    const { name, email, password } = req.body;
-
-
-
-    if (!name) {
-        return res.status(422).json({ msg: "name is required" })
-    }
-
-    if (!email) {
-        return res.status(422).json({ msg: "email is required" })
-    }
-
-    if (!password) {
-        return res.status(422).json({ msg: "password is required" })
-    }
-
-    const userExists = await User.findOne({ email: email })
-    if (userExists) {
-        return res.status(422).json({ msg: " user already exist" })
-    }
-
-    const salt = await bcrypt.genSalt(8)
-    const passwordHash = await bcrypt.hash(password, salt)
-
-    //create User//
-    const user = new User({
-        name,
-        email,
-        password: passwordHash
-
-    })
-    try {
-        await user.save()
-        res.status(201).json({ msg: "user create successfuly" })
-
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({ error: error.message });
-    }
-
-
-
-
-})
 
 /////////// Login with jwt//////////////////
 
-app.post('/register/login', async (req, res) => {
+app.post('/user/login', async (req, res) => {
     const { email, password } = req.body
 
     const userEmail = await User.findOne({ email: email }).catch(
@@ -180,31 +133,46 @@ app.post('/register/login', async (req, res) => {
     if (!userEmail) {
         return res.status(400).json({ msg: "Email dont match" })
     }
-
-   
     const isMatch = await bcrypt.compare(password, userEmail.password)
 
     if (!isMatch) {
         return res.status(400).json({ auth: "password dont match" })
     }
-
     const jwtToken = jwt.sign(
-        { id: userEmail.id, email: userEmail.email },
-        process.env.JWT_SECRET
-    )
+    { id: userEmail._id, email: userEmail.email },
+    process.env.JWT_SECRET
+);
 
-    res.json({ auth: true, token: jwtToken })
+res.json({
+  auth: true,
+  token: jwtToken,
+  user: {
+    id: userEmail._id,
+    name: userEmail.name,
+    email: userEmail.email
+
+  }
+});
 })
 
 // Our Route 
 app.listen(3002, (req, res) => {
-    console.log("My server is too nice")
+    console.log("Server User ON")
 })
 
 
-//curl -X POST http://localhost:3002/user/register \-H "Content-Type: application/json" \-d '{"name":"user","email": "userexample@gmail.com","password":"12345pooj"}' 
+
+//curl -X POST http://localhost:3002/user/register \-H "Content-Type: application/json"\-d '{"name":"Tamara","email": "Tamara@gmail.com","password":"000034"}' 
 // 
 
-//curl -X POST  -d '{"name":"user1","email": "userexample@gmail.com","password":"001100"}' localhost:3002/user/register
+//curl -X POST  -d '{"userId:"123","products":[{"book:react Book", "qty":1}],"amount:30"}' localhost:3002/orders
 //curl -X POST  -d '{"name":"Admin2","email": "admin4example@gmail.com","password":"query"}' localhost:3002/user/register
+
+//curl -X POST http://localhost:3002/user/login \-H "Content-Type: application/json" \-d '{"name":"Tanio","email": "Tanio@gmail.com","password":"10124"}'
+
+
+
+
+
+
 
